@@ -18,3 +18,17 @@ jobs:
       - name: Run pytest
         run: |
           pytest
+
+  upload_zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Zip the code
+        run: |
+          zip -r release.zip . -x ".git/*" ".github/*" ".gitignore"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-release
+          path: release.zip
