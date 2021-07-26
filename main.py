@@ -43,9 +43,9 @@ def predict_flower(query_data: QueryIn):
     return output
 
 @app.post("/feedback_loop",status_code=200)
-def feedback_loop(data: list[FeedbackIn]):
+def feedback_loop(data: List[FeedbackIn]):
     retrain(data)
-    return{"detail":"Feedback loop successful"}
+    return {"detail": "Feedback loop successful"}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host='127.0.0.1', port=5000, reload=True)
