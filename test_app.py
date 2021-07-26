@@ -21,6 +21,7 @@ def test_pred_virginica():
         assert response.status_code == 200
         assert response.json() == {'flower_class': "Iris Virginica"}
 
+# Added the 2 test cases
 
 def test_pred_setosa():
     payload = {
