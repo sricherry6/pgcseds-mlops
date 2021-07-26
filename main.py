@@ -43,7 +43,7 @@ def predict_flower(query_data: QueryIn):
     return output
 
 @app.post("/feedback_loop",status_code=200)
-def feedback_loop(data: List[FeedbackIn]):
+def feedback_loop(data: list[FeedbackIn]):
     retrain(data)
     return {"detail": "Feedback loop successful"}
 
